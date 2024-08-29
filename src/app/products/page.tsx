@@ -33,6 +33,7 @@ const Products = () => {
     const getProductsList = useCallback(
         async (value?: ProductFilterType) => {
             setProductsLoader(true);
+
             try {
                 let response = await fetch(
                     !value ? 'api/products' : `api/products?filterType=${value}`
@@ -45,15 +46,18 @@ const Products = () => {
                 } else {
                     notification.error({ message: responseJSON.message, type: 'error' });
                 }
-            } catch (error) {
+            } 
+            catch (error) {
                 console.log(error, 'error');
             }
+
             setProductsLoader(false);
         },
         [setProductsLoader, notification]
     );
 
     const handleDeleteProduct = async (id: string) => {
+
         try {
             let response = await fetch('api/products', {
                 method: 'DELETE',
@@ -69,6 +73,7 @@ const Products = () => {
         } catch (error) {
             console.log(error, 'error');
         }
+
     };
 
     useEffect(() => {
