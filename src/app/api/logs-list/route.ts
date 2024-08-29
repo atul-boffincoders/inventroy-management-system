@@ -8,20 +8,11 @@ export async function GET() {
         await connectDb();
         const data = await LogModel.find({}).populate('productId');
 
-        const response = NextResponse.json({
-          success: true,
-          status: StatusCodes.OK,
-          data,
-      });
-
-      // Set Cache-Control header to prevent caching
-      response.headers.set('Cache-Control', 'no-store');
-
-      return response;    } catch (error) {
-      
+        return NextResponse.json({ success: true, status: StatusCodes.OK, data });
+    } catch (error) {
         return NextResponse.json({
             success: false,
-            message: 'Failed to create item',
+            message: 'Failed to get all logs',
             status: StatusCodes.INTERNAL_SERVER_ERROR,
         });
     }

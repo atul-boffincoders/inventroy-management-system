@@ -56,8 +56,8 @@ const ProductLogs = () => {
         setLogsLoading(true);
 
         try {
-            const response = await fetch(`/api/all-logs`, {
-                cache: 'no-store',
+            const response = await fetch(`/api/logs-list`, {
+                cache: 'no-cache',
             });
             const responseJSON: IProductLogsResponse = await response.json();
 
