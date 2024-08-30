@@ -2,8 +2,8 @@ import connectDb from '@/app/config/db';
 import LogModel from '@/app/models/log';
 import { StatusCodes } from 'http-status-codes';
 import { NextResponse } from 'next/server';
-export const fetchCache = 'force-no-store';
 
+export const dynamic = 'force-dynamic';
 export async function GET() {
     try {
         await connectDb();
