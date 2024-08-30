@@ -59,7 +59,7 @@ const ProductLogs = () => {
 
         try {
             const response = await fetch(`/api/all-logs`, {
-                cache: 'no-store',
+             next:{revalidate:10}
             });
             const responseJSON: IProductLogsResponse = await response.json();
 
