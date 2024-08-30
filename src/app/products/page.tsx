@@ -36,11 +36,7 @@ const Products = () => {
 
             try {
                 let response = await fetch(
-                    !value ? 'api/products' : `api/products?filterType=${value}`,
-                    {
-                        cache:"no-store"
-
-                    }
+                    !value ? 'api/products' : `api/products?filterType=${value}`
                 );
                 let responseJSON: IProductsListResponse = await response.json();
 
@@ -50,8 +46,7 @@ const Products = () => {
                 } else {
                     notification.error({ message: responseJSON.message, type: 'error' });
                 }
-            } 
-            catch (error) {
+            } catch (error) {
                 console.log(error, 'error');
             }
 
@@ -61,12 +56,10 @@ const Products = () => {
     );
 
     const handleDeleteProduct = async (id: string) => {
-
         try {
             let response = await fetch('api/products', {
                 method: 'DELETE',
                 body: JSON.stringify({ productId: id }),
-                cache:"no-store"
             });
             let responseJSON: IBaseResponse = await response.json();
             if (responseJSON.status === StatusCodes.OK) {
@@ -78,7 +71,6 @@ const Products = () => {
         } catch (error) {
             console.log(error, 'error');
         }
-
     };
 
     useEffect(() => {

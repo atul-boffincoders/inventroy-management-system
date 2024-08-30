@@ -29,8 +29,6 @@ const UpdateProductModal = ({
             let response = await fetch('api/products', {
                 method: 'PUT',
                 body: JSON.stringify({ ...values, productId: initialProduct._id }),
-                cache:"no-store"
-
             });
             let responseJSON: IBaseResponse = await response.json();
 

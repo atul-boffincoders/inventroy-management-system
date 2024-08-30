@@ -44,7 +44,7 @@ export async function POST(request: Request) {
         
         return NextResponse.json({
             success: false,
-            message: 'Failed to create item',
+            message: 'Failed to create order',
             status: StatusCodes.INTERNAL_SERVER_ERROR,
         });
     }

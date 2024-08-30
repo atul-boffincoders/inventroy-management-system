@@ -58,9 +58,7 @@ const ProductLogs = () => {
         setLogsLoading(true);
 
         try {
-            const response = await fetch(`/api/all-logs`, {
-             next:{revalidate:10}
-            });
+            const response = await fetch(`/api/all-logs`);
             const responseJSON: IProductLogsResponse = await response.json();
 
             if (responseJSON.status === StatusCodes.OK) {
