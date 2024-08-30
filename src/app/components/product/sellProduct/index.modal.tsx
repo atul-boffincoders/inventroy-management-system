@@ -27,6 +27,8 @@ const SellProductModal = ({
             let response = await fetch('api/order', {
                 method: 'POST',
                 body: JSON.stringify({ ...values, productId: product._id }),
+                cache:"no-store"
+
             });
             let responseJSON: IBaseResponse = await response.json();
             if (responseJSON.status === StatusCodes.OK) {

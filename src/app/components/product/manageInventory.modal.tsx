@@ -32,6 +32,8 @@ const ManageInventoryModal = ({
                 let response = await fetch('api/inventory', {
                     method: 'PUT',
                     body: JSON.stringify({ productId: product._id, stock: stocks, type }),
+                    cache:"no-store"
+
                 });
                 let responseJSON: IBaseResponse = await response.json();
 

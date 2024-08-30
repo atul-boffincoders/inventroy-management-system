@@ -36,7 +36,11 @@ const Products = () => {
 
             try {
                 let response = await fetch(
-                    !value ? 'api/products' : `api/products?filterType=${value}`
+                    !value ? 'api/products' : `api/products?filterType=${value}`,
+                    {
+                        cache:"no-store"
+
+                    }
                 );
                 let responseJSON: IProductsListResponse = await response.json();
 
@@ -62,6 +66,7 @@ const Products = () => {
             let response = await fetch('api/products', {
                 method: 'DELETE',
                 body: JSON.stringify({ productId: id }),
+                cache:"no-store"
             });
             let responseJSON: IBaseResponse = await response.json();
             if (responseJSON.status === StatusCodes.OK) {

@@ -25,6 +25,8 @@ const CreateProductModal = ({
             let response = await fetch('api/products', {
                 method: 'POST',
                 body: JSON.stringify(values),
+                cache:"no-store"
+
             });
             let responseJSON: IBaseResponse = await response.json();
 
